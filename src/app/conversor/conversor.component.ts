@@ -26,9 +26,6 @@ export class ConversorComponent implements OnInit {
         this.category = this.removeAcentos(params['category'].toLowerCase());
         this.from = this.removeAcentos(params['convertFrom'].toLowerCase());
         this.to = this.removeAcentos(params['convertTo'].toLowerCase());
-        console.log(this.category);
-        console.log(this.from);
-        console.log(this.to);
         })
   }
 
@@ -45,13 +42,9 @@ export class ConversorComponent implements OnInit {
     let valor;
     if (obj.src === 'from') {
       valor = this.converterService.converter(this.category, this.from, this.to, +obj.value);
-    } else {
-      valor = this.converterService.converter(this.category, this.to, this.from, +obj.value);
-    }
-
-    if (obj.src === 'from') {
       this.convertedValueFieldTo = valor;
     } else {
+      valor = this.converterService.converter(this.category, this.to, this.from, +obj.value);
       this.convertedValueFieldFrom = valor;
     }
   }
