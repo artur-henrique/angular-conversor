@@ -27,18 +27,14 @@ export class ConverterComponent implements OnInit, OnChanges {
   @Input() convertTo: string;
 
   @Input() convertedData: Teste;
-  convertedValue: number | string = '';
 
-  // @Output() onInputValue = new EventEmitter<number>();
   @Output() onInputValue = new EventEmitter<Teste>();
+
+  convertedValue: number | string = '';
 
   constructor() {}
 
   ngOnInit () {
-    console.log('Filho: ');
-    console.log(this.category);
-    console.log(this.convertFrom);
-    console.log(this.convertTo);
   }
 
   ngOnChanges() {
@@ -60,12 +56,10 @@ export class ConverterComponent implements OnInit, OnChanges {
   }
 
   sendValue(value) {
-    // this.onInputValue.emit(value);
     this.onInputValue.emit({
       src: this.src,
       value: value
     });
-    // console.dir(event);
   }
 
 }

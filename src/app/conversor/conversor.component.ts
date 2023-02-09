@@ -43,10 +43,16 @@ export class ConversorComponent implements OnInit {
       alert('Digite um valor.');
       return;
     };
-    const valor = this.converterService.converter(this.category, this.from, this.to, +obj.value);
-    console.log("Ref: ", obj.value);
-    console.log("Res: ", valor);
-    console.log("Source: ", obj);
+
+    let valor;
+    if (obj.src === 'from') {
+      valor = this.converterService.converter(this.category, this.from, this.to, +obj.value);
+    } else {
+      valor = this.converterService.converter(this.category, this.to, this.from, +obj.value);
+    }
+    // console.log("Ref: ", obj.value);
+    // console.log("Res: ", valor);
+    // console.log("Source: ", obj);
 
     const data = {
       src: obj.src,
