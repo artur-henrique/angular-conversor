@@ -11,11 +11,10 @@ export class ConversorComponent implements OnInit {
   category: string;
   from: string;
   to: string;
-
-  // fromField: number;
-  // toField: number;
-  // @ViewChild('fromField') fromField: ElementRef;
-  // @ViewChild('toField') toField: ElementRef;
+  convertedValue: {
+    src: string,
+    value: number
+  };
 
   constructor(
     private router: Router,
@@ -32,22 +31,28 @@ export class ConversorComponent implements OnInit {
         console.log(this.category);
         console.log(this.from);
         console.log(this.to);
-        }
-      )
+        })
   }
 
   navigateToHome() {
     this.router.navigate(['/']);
   }
 
-  convertValue(value) {
-    if (!value) {
+  convertValue(obj) {
+    if (!obj.value) {
       alert('Digite um valor.');
       return;
     };
-    const valor = this.converterService.converter(this.category, this.from, this.to, value);
-
-    console.log("Ref: ", value);
+    const valor = this.converterService.converter(this.category, this.from, this.to, +obj.value);
+    console.log("Ref: ", obj.value);
     console.log("Res: ", valor);
+    console.log("Source: ", obj);
+
+    const data = {
+      src: obj.src,
+      initValue: obj.value,
+      value: valor
+    }
+    this.convertedValue = data;
   }
 }
