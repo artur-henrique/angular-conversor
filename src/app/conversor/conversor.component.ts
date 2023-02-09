@@ -11,8 +11,8 @@ export class ConversorComponent implements OnInit {
   category: string;
   from: string;
   to: string;
-  valueA: number | string = '';
-  valueB: number | string = '';
+  convertedValueFieldFrom: number | string = '';
+  convertedValueFieldTo: number | string = '';
 
   constructor(
     private router: Router,
@@ -50,9 +50,9 @@ export class ConversorComponent implements OnInit {
     }
 
     if (obj.src === 'from') {
-      this.valueB = valor;
+      this.convertedValueFieldTo = valor;
     } else {
-      this.valueA = valor;
+      this.convertedValueFieldFrom = valor;
     }
   }
 
