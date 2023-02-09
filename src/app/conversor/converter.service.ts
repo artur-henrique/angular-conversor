@@ -1,6 +1,6 @@
 export class ConverterService {
   converter(category, from, to, value) {
-    return this.converters[category][from][to](value);
+    return this.converters[category][from][to](value).toFixed(2);
   }
 
   converters = {
