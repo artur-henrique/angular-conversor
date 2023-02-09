@@ -1,10 +1,19 @@
-<h3>Medida a ser convertida: <span>{{ convertFrom || convertTo }}</span></h3>
-<input
-  type="text"
-  placeholder="Insira o valor a ser convertido"
-  #inputValue
-  [value]="convertedNumber"
-  >
-<div>
-  <button (click)="sendValue(inputValue.value)">Converter</button>
+<div class="converter-box">
+  <h3>Medida a ser convertida: <span>{{ convertFrom || convertTo }}</span></h3>
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Insira o valor a ser convertido"
+      #inputValue
+      [value]="convertedNumber">
+  </mat-form-field>
+  <div>
+    <button
+    (click)="sendValue(inputValue.value)"
+    mat-flat-button
+    color="primary">
+      Converter
+    </button>
+  </div>
 </div>

@@ -9,23 +9,25 @@ import { TypeOfCalc } from 'src/app/interfaces/type';
 })
 export class DropdownComponent {
   @Input() type: TypeOfCalc;
-  @ViewChild('convertFrom') from: ElementRef;
-  @ViewChild('convertTo') to: ElementRef;
+  @ViewChild('convertFrom') from;
+  @ViewChild('convertTo') to;
 
   constructor(
     private router: Router,
   ) {}
 
   onChooseCalculator() {
-    if(this.from.nativeElement.value === this.to.nativeElement.value) {
+    console.log("From: ", this.from._value);
+    console.log("To: ", this.to._value);
+    if(this.from._value === this.to._value) {
       alert("You can't choose equal values!");
       return
     }
 
     this.router.navigate(['converter'], { queryParams: {
       category: this.type.category,
-      convertFrom: this.from.nativeElement.value,
-      convertTo: this.to.nativeElement.value
+      convertFrom: this.from._value,
+      convertTo: this.to._value
     } });
   }
 }
