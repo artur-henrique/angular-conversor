@@ -10,7 +10,10 @@ import { ConversorComponent } from './conversor/conversor.component';
 import { TypeService } from './services/type.service';
 import { ConverterService } from './conversor/converter.service';
 import { FormsModule } from '@angular/forms';
+// Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -27,6 +30,8 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatSelectModule,
     MatButtonModule
   ],

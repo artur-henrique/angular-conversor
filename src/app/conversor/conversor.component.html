@@ -1,5 +1,6 @@
 <h1>Você está vendo a conversão de {{ from }} e {{ to }}</h1>
-<app-converter
+<div class="flex">
+  <app-converter
   src="from"
   [category]="category"
   [convertFrom]="from"
@@ -14,5 +15,11 @@
   (onInputValue)="convertValue($event)"
   [convertedNumber]="valueB"
   ></app-converter>
+</div>
 <br>
-<button (click)="navigateToHome()">Voltar para home</button>
+<button
+  mat-flat-button
+  color="primary"
+  (click)="navigateToHome()">
+  Voltar para home
+</button>
