@@ -10,6 +10,9 @@ import { ConversorComponent } from './conversor/conversor.component';
 import { TypeService } from './services/type.service';
 import { ConverterService } from './conversor/converter.service';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [TypeService, ConverterService],
   bootstrap: [AppComponent]
