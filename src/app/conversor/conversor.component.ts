@@ -25,9 +25,9 @@ export class ConversorComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
-        this.category = params['category'].toLowerCase();
-        this.from = params['convertFrom'].toLowerCase();
-        this.to = params['convertTo'].toLowerCase();
+        this.category = this.removeAcentos(params['category'].toLowerCase());
+        this.from = this.removeAcentos(params['convertFrom'].toLowerCase());
+        this.to = this.removeAcentos(params['convertTo'].toLowerCase());
         console.log(this.category);
         console.log(this.from);
         console.log(this.to);
@@ -60,5 +60,24 @@ export class ConversorComponent implements OnInit {
       value: valor
     }
     this.convertedValue = data;
+  }
+
+
+  removeAcentos(str: string) {
+    let comAcentos = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝŔÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿŕ";
+    let semAcentos = "AAAAAAACEEEEIIIIDNOOOOOOUUUUYRsBaaaaaaaceeeeiiiionoooooouuuuybyr";
+    let novaString = "";
+
+    for (let i = 0; i < str.length; i++) {
+      let char = str.charAt(i);
+      let indexAcento = comAcentos.indexOf(char);
+      if (indexAcento > -1) {
+        novaString += semAcentos.charAt(indexAcento);
+      } else {
+        novaString += char;
+      }
+    }
+
+    return novaString;
   }
 }
