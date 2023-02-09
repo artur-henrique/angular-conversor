@@ -11,10 +11,8 @@ export class ConversorComponent implements OnInit {
   category: string;
   from: string;
   to: string;
-  convertedValue: {
-    src: string,
-    value: number
-  };
+  valueA: number | string = '';
+  valueB: number | string = '';
 
   constructor(
     private router: Router,
@@ -50,16 +48,12 @@ export class ConversorComponent implements OnInit {
     } else {
       valor = this.converterService.converter(this.category, this.to, this.from, +obj.value);
     }
-    // console.log("Ref: ", obj.value);
-    // console.log("Res: ", valor);
-    // console.log("Source: ", obj);
 
-    const data = {
-      src: obj.src,
-      initValue: obj.value,
-      value: valor
+    if (obj.src === 'from') {
+      this.valueB = valor;
+    } else {
+      this.valueA = valor;
     }
-    this.convertedValue = data;
   }
 
 

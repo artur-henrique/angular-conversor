@@ -4,7 +4,7 @@
   [category]="category"
   [convertFrom]="from"
   (onInputValue)="convertValue($event)"
-  [convertedData]="convertedValue"
+  [convertedNumber]="valueA"
   ></app-converter>
 
 <app-converter
@@ -12,7 +12,7 @@
   [category]="category"
   [convertTo]="to"
   (onInputValue)="convertValue($event)"
-  [convertedData]="convertedValue"
+  [convertedNumber]="valueB"
   ></app-converter>
 <br>
 <button (click)="navigateToHome()">Voltar para home</button>
