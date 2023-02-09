@@ -1,0 +1,8 @@
+<h3>Medida a ser convertida: {{ convertFrom || convertTo }}</h3>
+<input
+  type="text"
+  placeholder="Insira o valor a ser convertido"
+  #inputValue>
+<div>
+  <button (click)="sendValue(inputValue.value)">Converter</button>
+</div>

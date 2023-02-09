@@ -1,0 +1,15 @@
+<h3>Conversor de {{ type.category }}</h3>
+<br>
+<div>
+  <select #convertFrom>
+    <option value="">Converter de:</option>
+    <option *ngFor="let item of type.list" [value]="item">{{item}}</option>
+  </select>
+  <select #convertTo>
+    <option value="">Converter para:</option>
+    <option *ngFor="let item of type.list" [value]="item">{{item}}</option>
+  </select>
+</div>
+<div>
+  <button (click)="onChooseCalculator()">Converter {{ type.category.toLowerCase() }}</button>
+</div>

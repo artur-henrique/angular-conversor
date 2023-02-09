@@ -1,0 +1,14 @@
+<h1>Você está vendo a conversão de {{ from }} e {{ to }}</h1>
+<app-converter
+  [category]="category"
+  [convertFrom]="from"
+  (onInputValue)="convertValue($event)"
+  ></app-converter>
+
+<app-converter
+  [category]="category"
+  [convertTo]="to"
+  (onInputValue)="convertValue($event)"
+  ></app-converter>
+<br>
+<button (click)="navigateToHome()">Voltar para home</button>
